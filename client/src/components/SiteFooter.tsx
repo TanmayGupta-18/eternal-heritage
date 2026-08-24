@@ -1,6 +1,10 @@
 /** Night Archive style reminder: the footer reads like a restrained archival colophon, not a marketing endpoint. */
 import { TempleMark } from "@/components/TempleMark";
 
+const isGitHubPagesBuild = import.meta.env.BASE_URL !== "/";
+const archiveLink = isGitHubPagesBuild ? "#/?section=gallery" : "/#gallery";
+const notesLink = isGitHubPagesBuild ? "#/?section=archive-notes" : "/#archive-notes";
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -14,9 +18,9 @@ export function SiteFooter() {
         </div>
 
         <div className="site-footer__links" aria-label="Footer navigation">
-          <a href="/#gallery">The archives</a>
-          <a href="/#archive-notes">Architectural heritage</a>
-          <a href="/#archive-notes">Vedic studies</a>
+          <a href={archiveLink}>The archives</a>
+          <a href={notesLink}>Architectural heritage</a>
+          <a href={notesLink}>Vedic studies</a>
           <a href="https://commons.wikimedia.org/wiki/Category:Madurai_Meenakshi_Temple" target="_blank" rel="noreferrer">
             Image credits
           </a>

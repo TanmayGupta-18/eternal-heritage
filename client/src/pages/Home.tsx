@@ -1,7 +1,7 @@
 /** Night Archive style reminder: the home route is an asymmetric, photographic archive corridor with restrained gilded wayfinding. */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowDown, BookOpenText, Compass, SlidersHorizontal } from "lucide-react";
-import { archiveArt, temples } from "@/data/temples";
+import { archiveArt, templePhotography, temples } from "@/data/temples";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TempleCard } from "@/components/TempleCard";
@@ -16,6 +16,17 @@ export default function Home() {
   const [stateFilter, setStateFilter] = useState("All states");
   const [deityFilter, setDeityFilter] = useState("All deities");
   const [styleFilter, setStyleFilter] = useState("All styles");
+
+  useEffect(() => {
+    const scrollToRequestedSection = () => {
+      const section = new URLSearchParams(window.location.hash.split("?")[1] || "").get("section");
+      if (section) window.setTimeout(() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" }), 0);
+    };
+
+    scrollToRequestedSection();
+    window.addEventListener("hashchange", scrollToRequestedSection);
+    return () => window.removeEventListener("hashchange", scrollToRequestedSection);
+  }, []);
 
   const filteredTemples = useMemo(
     () =>
@@ -33,7 +44,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <section className="archive-hero">
-          <img className="archive-hero__photo" src="/manus-storage/meenakshi-pond-gopurams_0230e3f5.jpg" alt="" aria-hidden="true" />
+          <img className="archive-hero__photo" src={templePhotography.meenakshiPond} alt="" aria-hidden="true" />
           <img className="archive-hero__art" src={archiveArt.archiveSky} alt="" aria-hidden="true" />
           <div className="archive-hero__shade" />
           <div className="archive-hero__content container">
@@ -44,7 +55,7 @@ export default function Home() {
               <p className="archive-hero__lede">
                 A visual index of structures shaped by devotion, geometry, craftsmanship, and the long memory of place.
               </p>
-              <a href="#gallery" className="hero-explore">Explore the collection <ArrowDown size={16} /></a>
+              <a href={import.meta.env.BASE_URL === "/" ? "#gallery" : "#/?section=gallery"} className="hero-explore">Explore the collection <ArrowDown size={16} /></a>
             </div>
             <div className="archive-hero__edge-note"><span /> Scroll to enter</div>
           </div>

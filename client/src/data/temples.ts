@@ -13,23 +13,29 @@ export type Temple = {
   status?: string;
 };
 
+const commonsFile = (fileName: string, width = 1800) =>
+  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(fileName)}?width=${width}`;
+
+const mandalaSvg = encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><g fill="none" stroke="#d6b25e" stroke-width="1"><circle cx="160" cy="160" r="142"/><circle cx="160" cy="160" r="106"/><circle cx="160" cy="160" r="70"/><path d="M160 18 302 160 160 302 18 160Z"/><path d="M160 54 266 160 160 266 54 160Z"/><path d="m160 88 72 72-72 72-72-72Z"/></g></svg>',
+);
+
 export const templePhotography = {
-  meenakshiPond: "/manus-storage/meenakshi-pond-gopurams_0230e3f5.jpg",
-  meenakshiGopuram: "/manus-storage/meenakshi-gopuram_c8af3fc8.jpg",
-  meenakshiPillars: "/manus-storage/meenakshi-thousand-pillars_50762979.jpg",
-  meenakshiSculpture: "/manus-storage/meenakshi-sculpture_6d411d4b.jpg",
-  meenakshiMandapaCorridor: "/manus-storage/meenakshi-mandapa-corridor_a914d5b6.jpg",
-  hoysaleshwaraSanctum: "/manus-storage/hoysaleshwara-sanctum_9ceeec28.jpg",
-  konark: "/manus-storage/konark-night_e52b3901.jpg",
-  kedarnath: "/manus-storage/kedarnath-temple_5d3db40e.jpg",
+  meenakshiPond: commonsFile("Temple de Mînâkshî01.jpg"),
+  meenakshiGopuram: commonsFile("Madurai Meenakshi temple gopuram.jpg"),
+  meenakshiPillars: commonsFile("1000 pillars,meenakshi temple,madurai - panoramio.jpg"),
+  meenakshiSculpture: commonsFile("Sculpture in Meenakshi Amman Temple madurai.jpg"),
+  meenakshiMandapaCorridor: commonsFile("Corridor leading to Mandapa in Meenakshi Amman Temple.jpg"),
+  hoysaleshwaraSanctum: commonsFile("A sanctum inside the Hoysaleshwara temple in Halebidu.jpg"),
+  konark: commonsFile("Konark at night.jpg"),
+  kedarnath: commonsFile("Kedarnath Temple.jpg"),
 } as const;
 
 export const archiveArt = {
-  mark: "/manus-storage/eternal-heritage-threshold-mark_7b578b3e.png",
-  mandala: "/manus-storage/eternal-heritage-mandala-field_29c307b3.jpg",
-  bronzeStudy: "/manus-storage/eternal-heritage-bronze-study_7dc238ad.jpg",
-  stoneStudy: "/manus-storage/eternal-heritage-stone-study_7551af3f.jpg",
-  archiveSky: "/manus-storage/eternal-heritage-archive-sky_c8e6ba15.jpg",
+  mandala: `data:image/svg+xml,${mandalaSvg}`,
+  bronzeStudy: commonsFile("Sculpture in Meenakshi Amman Temple madurai.jpg"),
+  stoneStudy: commonsFile("A sanctum inside the Hoysaleshwara temple in Halebidu.jpg"),
+  archiveSky: commonsFile("Temple de Mînâkshî01.jpg"),
 } as const;
 
 export const temples: Temple[] = [

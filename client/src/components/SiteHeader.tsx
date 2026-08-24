@@ -4,11 +4,12 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { TempleMark } from "@/components/TempleMark";
 
+const isGitHubPagesBuild = import.meta.env.BASE_URL !== "/";
 const navItems = [
-  { label: "Temples", href: "/#gallery" },
+  { label: "Temples", href: isGitHubPagesBuild ? "#/?section=gallery" : "/#gallery" },
   { label: "Mandapas", href: "/mandapas" },
   { label: "Garbhagrihas", href: "/garbhagrihas" },
-  { label: "Iconography", href: "/#archive-notes" },
+  { label: "Iconography", href: isGitHubPagesBuild ? "#/?section=archive-notes" : "/#archive-notes" },
 ];
 
 export function SiteHeader() {
@@ -42,13 +43,15 @@ export function SiteHeader() {
 
         <nav className="masthead__nav" aria-label="Primary navigation">
           {navItems.map((item) => (
-            <a href={item.href} key={item.label} className={`masthead__link ${isActive(item.label) ? "masthead__link--active" : ""}`}>
-              {item.label}
-            </a>
+            item.href.startsWith("#") ? (
+              <a href={item.href} key={item.label} className={`masthead__link ${isActive(item.label) ? "masthead__link--active" : ""}`}>{item.label}</a>
+            ) : (
+              <Link href={item.href} key={item.label} className={`masthead__link ${isActive(item.label) ? "masthead__link--active" : ""}`}>{item.label}</Link>
+            )
           ))}
         </nav>
 
-        <a href="/#gallery" className="journey-link">
+        <a href={isGitHubPagesBuild ? "#/?section=gallery" : "/#gallery"} className="journey-link">
           Begin journey <ArrowUpRight size={15} strokeWidth={1.7} />
         </a>
 
@@ -65,11 +68,13 @@ export function SiteHeader() {
 
       <div className={`mobile-menu ${isOpen ? "mobile-menu--open" : ""}`}>
         {navItems.map((item) => (
-          <a href={item.href} key={item.label} className={`mobile-menu__link ${isActive(item.label) ? "mobile-menu__link--active" : ""}`}>
-            {item.label}
-          </a>
+          item.href.startsWith("#") ? (
+            <a href={item.href} key={item.label} className={`mobile-menu__link ${isActive(item.label) ? "mobile-menu__link--active" : ""}`}>{item.label}</a>
+          ) : (
+            <Link href={item.href} key={item.label} className={`mobile-menu__link ${isActive(item.label) ? "mobile-menu__link--active" : ""}`}>{item.label}</Link>
+          )
         ))}
-        <a href="/#gallery" className="mobile-menu__journey">
+        <a href={isGitHubPagesBuild ? "#/?section=gallery" : "/#gallery"} className="mobile-menu__journey">
           Begin journey <ArrowUpRight size={16} strokeWidth={1.7} />
         </a>
       </div>

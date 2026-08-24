@@ -6,3 +6,7 @@
 - [x] Create the dedicated Garbhagrihas route from the supplied reference.
 - [x] Connect desktop and mobile navigation to the new routes.
 - [x] Verify new routes on desktop and mobile.
+- [x] Inspect the Vite build and current GitHub repository Pages configuration.
+- [x] Add a project-subpath-aware Vite base configuration and GitHub Pages workflow.
+- [x] Add a static route fallback for deep links on GitHub Pages.
+- [x] Build and verify the deploy output under the repository subpath.

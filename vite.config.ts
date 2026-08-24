@@ -15,6 +15,8 @@ const PROJECT_ROOT = import.meta.dirname;
 const LOG_DIR = path.join(PROJECT_ROOT, ".manus-logs");
 const MAX_LOG_SIZE_BYTES = 1 * 1024 * 1024; // 1MB per log file
 const TRIM_TARGET_BYTES = Math.floor(MAX_LOG_SIZE_BYTES * 0.6); // Trim to 60% to avoid constant re-trimming
+const githubRepositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] || "eternal-heritage";
+const isGitHubPagesBuild = process.env.GITHUB_PAGES === "true" || process.env.GITHUB_ACTIONS === "true";
 
 type LogSource = "browserConsole" | "networkRequests" | "sessionReplay";
 
@@ -203,9 +205,13 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+const plugins = isGitHubPagesBuild
+  ? [react(), tailwindcss(), jsxLocPlugin()]
+  : [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
+  // GitHub project sites are served from /<repository>/ rather than the domain root.
+  base: isGitHubPagesBuild ? `/${githubRepositoryName}/` : "/",
   plugins,
   resolve: {
     alias: {
