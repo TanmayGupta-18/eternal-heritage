@@ -18,6 +18,8 @@ export const templePhotography = {
   meenakshiGopuram: "/manus-storage/meenakshi-gopuram_c8af3fc8.jpg",
   meenakshiPillars: "/manus-storage/meenakshi-thousand-pillars_50762979.jpg",
   meenakshiSculpture: "/manus-storage/meenakshi-sculpture_6d411d4b.jpg",
+  meenakshiMandapaCorridor: "/manus-storage/meenakshi-mandapa-corridor_a914d5b6.jpg",
+  hoysaleshwaraSanctum: "/manus-storage/hoysaleshwara-sanctum_9ceeec28.jpg",
   konark: "/manus-storage/konark-night_e52b3901.jpg",
   kedarnath: "/manus-storage/kedarnath-temple_5d3db40e.jpg",
 } as const;

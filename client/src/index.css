@@ -67,6 +67,7 @@ img { display: block; max-width: 100%; }
 .masthead__nav { display: flex; align-items: center; gap: clamp(1rem, 2.2vw, 2.15rem); margin-left: auto; }
 .masthead__link, .site-footer__links a { color: #b8b5aa; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; transition: color 180ms var(--ease-out), letter-spacing 180ms var(--ease-out); }
 .masthead__link:hover, .masthead__link:focus-visible, .site-footer__links a:hover, .site-footer__links a:focus-visible { color: var(--gold-bright); letter-spacing: 0.18em; }
+.masthead__link--active { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 0.35rem; }
 .journey-link, .hero-explore, .coda-link { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; color: var(--ink); background: var(--gold); border: 1px solid var(--gold); padding: 0.76rem 1rem; font-size: 0.61rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: transform 160ms var(--ease-out), background 180ms var(--ease-out), color 180ms var(--ease-out); }
 .journey-link:hover, .hero-explore:hover, .coda-link:hover { background: var(--gold-bright); transform: translateY(-2px); }
 .journey-link:active, .hero-explore:active, .coda-link:active { transform: scale(0.97); }
@@ -179,6 +180,76 @@ h2 { margin: 0; color: var(--paper); font-family: "Playfair Display", Georgia, s
 .coda-link { margin-top: 1.75rem; background: transparent; color: var(--gold-bright); border: 1px solid rgba(214, 178, 94, 0.52); padding: 0.85rem 1rem; }
 .coda-link:hover { background: rgba(214, 178, 94, 0.13); }
 
+/* Mandapas — architectural assembly: patterned distance, layered columns, and a calmer, wider reading rhythm. */
+.assembly-hero, .sanctum-hero { position: relative; min-height: min(780px, 100svh); isolation: isolate; overflow: hidden; }
+.assembly-hero__photo, .sanctum-hero__photo { position: absolute; inset: 0; z-index: -4; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.72) contrast(1.04) brightness(0.63); }
+.assembly-hero__photo { object-position: center; }
+.sanctum-hero__photo { object-position: center 50%; }
+.assembly-hero__art, .sanctum-hero__art { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; mix-blend-mode: screen; }
+.assembly-hero__shade, .sanctum-hero__shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(8, 13, 22, 0.93) 0%, rgba(8, 13, 22, 0.55) 58%, rgba(8, 13, 22, 0.24) 100%), linear-gradient(0deg, var(--ink) 0%, transparent 37%); }
+.assembly-hero__content, .sanctum-hero__content { min-height: min(780px, 100svh); padding-top: 7rem; padding-bottom: 4.5rem; display: flex; flex-direction: column; justify-content: center; }
+.assembly-hero__title-block, .sanctum-hero__title-block { max-width: 44rem; animation: rise-in 700ms var(--ease-out) both; }
+.assembly-hero h1, .sanctum-hero h1 { margin: 0; color: var(--paper); font-family: "Playfair Display", Georgia, serif; font-size: clamp(3.7rem, 8vw, 7.5rem); font-weight: 600; letter-spacing: -0.055em; line-height: 0.86; }
+.assembly-hero__title-block > p:not(.eyebrow), .sanctum-hero__title-block > p:not(.eyebrow) { max-width: 34rem; margin: 1.5rem 0 0; color: #d6cfc0; font-size: 0.92rem; line-height: 1.85; }
+.assembly-hero__scroll { display: inline-flex; align-items: center; gap: 0.55rem; width: max-content; margin-top: 2rem; color: var(--gold-bright); border-bottom: 1px solid rgba(214, 178, 94, 0.48); padding-bottom: 0.45rem; font-size: 0.59rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; transition: color 180ms var(--ease-out), transform 180ms var(--ease-out); }
+.assembly-hero__scroll:hover { color: var(--paper); transform: translateY(-2px); }
+.pillar-halls { display: grid; grid-template-columns: 1.05fr 0.8fr; gap: clamp(2.8rem, 9vw, 9rem); align-items: center; padding-block: clamp(5.5rem, 11vw, 10rem); }
+.pillar-halls__figure { position: relative; min-height: 38rem; margin: 0; overflow: hidden; border: 1px solid rgba(214, 178, 94, 0.18); }
+.pillar-halls__figure::after, .thousand-hall__image::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 5.4rem rgba(8, 13, 22, 0.6); }
+.pillar-halls__figure img, .thousand-hall__image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.76) contrast(1.04) brightness(0.76); }
+.pillar-halls__figure figcaption, .thousand-hall__image figcaption, .sanctum-legend__figure figcaption { position: absolute; z-index: 2; inset: auto 1rem 1rem; color: rgba(236, 228, 207, 0.7); font-size: 0.55rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; }
+.pillar-halls__copy h2 { font-size: clamp(2.65rem, 5vw, 4.6rem); }
+.pillar-halls__copy > p:not(.eyebrow) { margin: 0 0 1.15rem; color: var(--body); font-size: 0.86rem; line-height: 1.9; }
+.thousand-hall { padding-block: clamp(5.5rem, 10vw, 9rem); background-size: cover; background-position: center; border-block: 1px solid rgba(214, 178, 94, 0.15); }
+.thousand-hall__grid { display: grid; grid-template-columns: 0.84fr 1.1fr 0.84fr; align-items: stretch; gap: 1px; margin-top: 3.5rem; background: rgba(214, 178, 94, 0.18); border: 1px solid rgba(214, 178, 94, 0.18); }
+.hall-note-stack { display: grid; grid-template-rows: 1fr 1fr; gap: 1px; }
+.hall-note { position: relative; min-height: 17rem; padding: clamp(1.45rem, 2.5vw, 2.35rem); background: rgba(14, 23, 36, 0.96); transition: background 220ms var(--ease-out), transform 220ms var(--ease-out); }
+.hall-note:hover { background: #1a293d; transform: translateY(-4px); }
+.hall-note > svg { color: var(--gold); margin-bottom: 2.4rem; }
+.hall-note__number { position: absolute; right: 1.4rem; top: 1.3rem; color: rgba(214, 178, 94, 0.57); font-family: "Playfair Display", Georgia, serif; font-size: 1.1rem; font-style: italic; }
+.hall-note h3 { margin: 0 0 0.7rem; color: var(--paper); font-family: "Playfair Display", Georgia, serif; font-size: 1.45rem; font-weight: 600; letter-spacing: -0.025em; }
+.hall-note p { margin: 0; color: var(--body); font-size: 0.74rem; line-height: 1.78; }
+.hall-note--quiet { background: rgba(10, 16, 27, 0.98); }
+.thousand-hall__image { position: relative; min-height: 34rem; margin: 0; overflow: hidden; }
+.hall-hierarchy { padding-block: clamp(5.5rem, 10vw, 9rem); }
+.hall-hierarchy__grid { display: grid; grid-template-columns: 1.25fr 0.75fr; grid-template-rows: 18rem 15rem; gap: 1px; margin-top: 3.4rem; background: rgba(214, 178, 94, 0.18); border: 1px solid rgba(214, 178, 94, 0.18); }
+.hall-hierarchy__feature, .hall-hierarchy__aside, .hall-hierarchy__threshold { min-height: 0; padding: 2.15rem; background-position: center; background-size: cover; }
+.hall-hierarchy__feature { grid-row: span 2; display: flex; flex-direction: column; justify-content: end; }
+.hall-hierarchy__feature h3, .hall-hierarchy__aside h3, .hall-hierarchy__threshold h3 { margin: 0 0 0.75rem; color: var(--paper); font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1; }
+.hall-hierarchy__feature > p:not(.eyebrow), .hall-hierarchy__aside > p:not(.eyebrow), .hall-hierarchy__threshold > p:not(.eyebrow) { max-width: 31rem; margin: 0; color: var(--body); font-size: 0.78rem; line-height: 1.78; }
+.hall-hierarchy__aside { background: var(--ink-panel); }
+.hall-hierarchy__aside > svg { color: var(--gold); margin-bottom: 2.5rem; }
+.hall-hierarchy__threshold { background-color: rgba(14, 23, 36, 0.95); }
+
+/* Garbhagrihas — compressed light and smaller, denser composition echo the page reference without simulating restricted ritual interiors. */
+.sanctum-hero__shade { background: linear-gradient(90deg, rgba(8, 13, 22, 0.88) 0%, rgba(8, 13, 22, 0.55) 58%, rgba(8, 13, 22, 0.28) 100%), linear-gradient(0deg, var(--ink) 0%, transparent 40%); }
+.sanctum-legend { display: grid; grid-template-columns: 0.78fr 1.22fr; gap: clamp(2.8rem, 9vw, 9rem); align-items: center; padding-block: clamp(5.5rem, 11vw, 10rem); }
+.sanctum-legend__copy h2 { font-size: clamp(2.65rem, 5vw, 4.7rem); }
+.sanctum-legend__copy > p:not(.eyebrow) { margin: 0 0 1.15rem; color: var(--body); font-size: 0.86rem; line-height: 1.9; }
+.sanctum-legend__figure { position: relative; min-height: 31rem; margin: 0; overflow: hidden; border: 1px solid rgba(214, 178, 94, 0.18); background: var(--ink-panel); }
+.sanctum-legend__figure::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 55%, rgba(8, 13, 22, 0.72)); }
+.sanctum-legend__figure img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.55) brightness(0.65); }
+.sanctum-marvels { padding-block: clamp(5.5rem, 10vw, 9rem); border-block: 1px solid rgba(214, 178, 94, 0.15); background-size: cover; background-position: center; }
+.sanctum-marvels__grid { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr; grid-template-rows: 16rem 16rem; gap: 1px; margin-top: 3.5rem; border: 1px solid rgba(214, 178, 94, 0.17); background: rgba(214, 178, 94, 0.17); }
+.sanctum-study { position: relative; padding: 1.85rem; background: rgba(14, 23, 36, 0.96); transition: background 220ms var(--ease-out), transform 220ms var(--ease-out); }
+.sanctum-study:hover { background: #1a293d; transform: translateY(-4px); }
+.sanctum-study--1 { grid-row: span 2; display: flex; flex-direction: column; justify-content: end; background: linear-gradient(155deg, rgba(22, 35, 52, 0.99), rgba(8, 13, 22, 0.99)); }
+.sanctum-study > svg { color: var(--gold); margin-bottom: auto; }
+.sanctum-study > span { position: absolute; right: 1.55rem; top: 1.4rem; color: rgba(214, 178, 94, 0.55); font-family: "Playfair Display", Georgia, serif; font-size: 1.1rem; font-style: italic; }
+.sanctum-study h3 { margin: 1.3rem 0 0.65rem; color: var(--paper); font-family: "Playfair Display", Georgia, serif; font-size: 1.36rem; font-weight: 600; line-height: 1.05; }
+.sanctum-study--1 h3 { font-size: 2.1rem; }
+.sanctum-study p { margin: 0; color: var(--body); font-size: 0.74rem; line-height: 1.78; }
+.eternal-flame { padding-block: clamp(5.5rem, 10vw, 9.5rem); display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 0; }
+.eternal-flame__panel { min-height: 32rem; padding: clamp(2rem, 5vw, 4.6rem); display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(214, 178, 94, 0.18); border-right: 0; background: rgba(17, 27, 40, 0.82); box-shadow: 0 0 4rem rgba(214, 178, 94, 0.045); }
+.eternal-flame__panel > svg { color: var(--gold); margin-bottom: 2rem; }
+.eternal-flame__panel h2 { font-size: clamp(2.5rem, 4.6vw, 4.2rem); }
+.eternal-flame__panel > p:not(.eyebrow) { margin: 0; color: var(--body); font-size: 0.82rem; line-height: 1.85; }
+.eternal-flame__note { margin-top: 1.25rem !important; padding-top: 1.25rem; border-top: 1px solid rgba(214, 178, 94, 0.16); color: rgba(199, 193, 177, 0.64) !important; font-size: 0.69rem !important; }
+.eternal-flame__image-wrap { min-height: 32rem; overflow: hidden; border: 1px solid rgba(214, 178, 94, 0.18); }
+.eternal-flame__image { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.72) brightness(0.68); }
+.sanctum-coda { min-height: 25rem; display: flex; align-items: center; background-size: cover; background-position: center; border-top: 1px solid rgba(214, 178, 94, 0.15); }
+.sanctum-coda__content { padding-block: 4.5rem; }
+
 .site-footer { border-top: 1px solid rgba(214, 178, 94, 0.15); background: #080d16; }
 .site-footer__inner { width: min(100%, 1400px); margin-inline: auto; padding: 2.35rem clamp(1.25rem, 3.4vw, 3.5rem); display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 1.5rem; align-items: center; }
 .site-footer__identity p { margin: 0.6rem 0 0; color: rgba(199, 193, 177, 0.58); font-size: 0.68rem; line-height: 1.6; }
@@ -198,12 +269,20 @@ h2 { margin: 0; color: var(--paper); font-family: "Playfair Display", Georgia, s
   .mobile-menu { position: absolute; inset: 5.4rem 0 auto; display: grid; gap: 0; max-height: 0; overflow: hidden; opacity: 0; background: rgba(9, 14, 24, 0.98); border-bottom: 0 solid rgba(214, 178, 94, 0.15); transition: max-height 250ms var(--ease-out), opacity 180ms var(--ease-out), border-width 180ms var(--ease-out); }
   .mobile-menu--open { max-height: 24rem; opacity: 1; border-bottom-width: 1px; }
   .mobile-menu__link, .mobile-menu__journey { padding: 1rem clamp(1.25rem, 5vw, 2rem); color: var(--paper); border-top: 1px solid rgba(214, 178, 94, 0.12); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .mobile-menu__link--active { color: var(--gold-bright); background: rgba(214, 178, 94, 0.07); }
   .mobile-menu__journey { display: flex; align-items: center; gap: 0.6rem; color: var(--gold-bright); }
   .archive-intro { grid-template-columns: 1fr 1.6fr; }
   .archive-intro__text { grid-column: 2; margin-top: 0; }
   .temple-grid { grid-template-columns: repeat(2, 1fr); }
   .detail-section { gap: 3rem; }
   .divine-section, .ritual-section { grid-template-columns: 1fr 1fr; }
+  .pillar-halls, .sanctum-legend { gap: 3rem; }
+  .thousand-hall__grid { grid-template-columns: 0.9fr 1.1fr; }
+  .hall-note-stack--right { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
+  .hall-hierarchy__grid { grid-template-columns: 1fr; grid-template-rows: 18rem 14rem 14rem; }
+  .hall-hierarchy__feature { grid-row: auto; }
+  .sanctum-marvels__grid { grid-template-columns: 1fr 1fr; grid-template-rows: 15rem 15rem 15rem; }
+  .sanctum-study--1 { grid-row: span 2; }
   .site-footer__inner { grid-template-columns: 1fr 1fr; }
   .site-footer__copyright { grid-column: 1 / -1; }
 }
@@ -239,4 +318,19 @@ h2 { margin: 0; color: var(--paper); font-family: "Playfair Display", Georgia, s
   .site-footer__inner { grid-template-columns: 1fr; text-align: left; padding-block: 2rem; }
   .site-footer__links { justify-content: flex-start; }
   .site-footer__copyright { grid-column: auto; }
+  .assembly-hero, .sanctum-hero { min-height: 43rem; }
+  .assembly-hero__content, .sanctum-hero__content { min-height: 43rem; justify-content: flex-end; padding-bottom: 4.5rem; }
+  .assembly-hero h1, .sanctum-hero h1 { font-size: clamp(3.5rem, 18vw, 5.3rem); }
+  .pillar-halls, .sanctum-legend, .eternal-flame { grid-template-columns: 1fr; }
+  .pillar-halls__figure, .sanctum-legend__figure { min-height: 25rem; }
+  .pillar-halls__copy, .sanctum-legend__copy { max-width: none; }
+  .thousand-hall__grid { grid-template-columns: 1fr; }
+  .hall-note-stack, .hall-note-stack--right { grid-column: auto; grid-template-columns: 1fr; grid-template-rows: auto; }
+  .thousand-hall__image { min-height: 26rem; order: -1; }
+  .hall-hierarchy__grid { grid-template-columns: 1fr; grid-template-rows: 20rem 16rem 16rem; }
+  .sanctum-marvels__grid { grid-template-columns: 1fr; grid-template-rows: repeat(4, minmax(14rem, auto)); }
+  .sanctum-study--1 { grid-row: auto; }
+  .sanctum-study { min-height: 14rem; }
+  .eternal-flame__panel { min-height: 0; border-right: 1px solid rgba(214, 178, 94, 0.18); border-bottom: 0; }
+  .eternal-flame__image-wrap { min-height: 23rem; }
 }

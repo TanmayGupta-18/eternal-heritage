@@ -10,6 +10,8 @@ The production website uses externally sourced temple photography only where lic
 | Kedarnath gallery card | Kedarnath Temple.jpg | Shaq774 | Public domain release | https://commons.wikimedia.org/wiki/File:Kedarnath_Temple.jpg |
 | Meenakshi architecture editorial image | 1000 pillars, meenakshi temple, madurai - panoramio.jpg | rajaraman sundaram | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:1000_pillars,meenakshi_temple,madurai_-_panoramio.jpg |
 | Meenakshi ritual and ornamentation editorial image | Sculpture in Meenakshi Amman Temple madurai.jpg | Joelsuganth | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Sculpture_in_Meenakshi_Amman_Temple_madurai.jpg |
+| Mandapas route hero and corridor study | Corridor leading to Mandapa in Meenakshi Amman Temple.jpg | IM3847 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Corridor_leading_to_Mandapa_in_Meenakshi_Amman_Temple.jpg |
+| Garbhagrihas route sanctum study | A sanctum inside the Hoysaleshwara temple in Halebidu.jpg | Anks.manuja | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:A_sanctum_inside_the_Hoysaleshwara_temple_in_Halebidu.jpg |
 
 ## Website attribution note
 

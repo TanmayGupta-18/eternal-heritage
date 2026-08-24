@@ -6,8 +6,8 @@ import { TempleMark } from "@/components/TempleMark";
 
 const navItems = [
   { label: "Temples", href: "/#gallery" },
-  { label: "Mandapas", href: "/#archive-notes" },
-  { label: "Garbhagrihas", href: "/#archive-notes" },
+  { label: "Mandapas", href: "/mandapas" },
+  { label: "Garbhagrihas", href: "/garbhagrihas" },
   { label: "Iconography", href: "/#archive-notes" },
 ];
 
@@ -25,6 +25,13 @@ export function SiteHeader() {
 
   useEffect(() => setIsOpen(false), [location]);
 
+  const isActive = (label: string) => {
+    if (label === "Temples") return location === "/" || location.startsWith("/temples/");
+    if (label === "Mandapas") return location === "/mandapas";
+    if (label === "Garbhagrihas") return location === "/garbhagrihas";
+    return false;
+  };
+
   return (
     <header className={`masthead ${isScrolled ? "masthead--solid" : ""}`}>
       <div className="masthead__inner">
@@ -35,7 +42,7 @@ export function SiteHeader() {
 
         <nav className="masthead__nav" aria-label="Primary navigation">
           {navItems.map((item) => (
-            <a href={item.href} key={item.label} className="masthead__link">
+            <a href={item.href} key={item.label} className={`masthead__link ${isActive(item.label) ? "masthead__link--active" : ""}`}>
               {item.label}
             </a>
           ))}
@@ -58,7 +65,7 @@ export function SiteHeader() {
 
       <div className={`mobile-menu ${isOpen ? "mobile-menu--open" : ""}`}>
         {navItems.map((item) => (
-          <a href={item.href} key={item.label} className="mobile-menu__link">
+          <a href={item.href} key={item.label} className={`mobile-menu__link ${isActive(item.label) ? "mobile-menu__link--active" : ""}`}>
             {item.label}
           </a>
         ))}
