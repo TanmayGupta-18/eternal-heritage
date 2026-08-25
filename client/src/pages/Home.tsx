@@ -55,7 +55,7 @@ export default function Home() {
               <p className="archive-hero__lede">
                 A visual index of structures shaped by devotion, geometry, craftsmanship, and the long memory of place.
               </p>
-              <a href={import.meta.env.BASE_URL === "/" ? "#gallery" : "#/?section=gallery"} className="hero-explore">Explore the collection <ArrowDown size={16} /></a>
+              <a href={import.meta.env.BASE_URL === "/" ? "#gallery" : "#/"} className="hero-explore">Explore the collection <ArrowDown size={16} /></a>
             </div>
             <div className="archive-hero__edge-note"><span /> Scroll to enter</div>
           </div>

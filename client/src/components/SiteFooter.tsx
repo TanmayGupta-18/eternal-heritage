@@ -2,8 +2,8 @@
 import { TempleMark } from "@/components/TempleMark";
 
 const isGitHubPagesBuild = import.meta.env.BASE_URL !== "/";
-const archiveLink = isGitHubPagesBuild ? "#/?section=gallery" : "/#gallery";
-const notesLink = isGitHubPagesBuild ? "#/?section=archive-notes" : "/#archive-notes";
+const archiveLink = isGitHubPagesBuild ? "#/" : "/#gallery";
+const notesLink = isGitHubPagesBuild ? "#/" : "/#archive-notes";
 
 export function SiteFooter() {
   return (

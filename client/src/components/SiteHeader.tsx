@@ -6,10 +6,12 @@ import { TempleMark } from "@/components/TempleMark";
 
 const isGitHubPagesBuild = import.meta.env.BASE_URL !== "/";
 const navItems = [
-  { label: "Temples", href: isGitHubPagesBuild ? "#/?section=gallery" : "/#gallery" },
+  // Query strings are part of Wouter's hash location, so #/?section=gallery
+  // does not match the / route on GitHub Pages. Keep cross-page targets route-only.
+  { label: "Temples", href: isGitHubPagesBuild ? "#/" : "/#gallery" },
   { label: "Mandapas", href: "/mandapas" },
   { label: "Garbhagrihas", href: "/garbhagrihas" },
-  { label: "Iconography", href: isGitHubPagesBuild ? "#/?section=archive-notes" : "/#archive-notes" },
+  { label: "Iconography", href: isGitHubPagesBuild ? "#/" : "/#archive-notes" },
 ];
 
 export function SiteHeader() {
@@ -51,7 +53,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a href={isGitHubPagesBuild ? "#/?section=gallery" : "/#gallery"} className="journey-link">
+        <a href={isGitHubPagesBuild ? "#/" : "/#gallery"} className="journey-link">
           Begin journey <ArrowUpRight size={15} strokeWidth={1.7} />
         </a>
 
@@ -74,7 +76,7 @@ export function SiteHeader() {
             <Link href={item.href} key={item.label} className={`mobile-menu__link ${isActive(item.label) ? "mobile-menu__link--active" : ""}`}>{item.label}</Link>
           )
         ))}
-        <a href={isGitHubPagesBuild ? "#/?section=gallery" : "/#gallery"} className="mobile-menu__journey">
+        <a href={isGitHubPagesBuild ? "#/" : "/#gallery"} className="mobile-menu__journey">
           Begin journey <ArrowUpRight size={16} strokeWidth={1.7} />
         </a>
       </div>

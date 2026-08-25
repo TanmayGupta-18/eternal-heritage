@@ -16,3 +16,9 @@
 - [x] Test homepage, hash route, deep-link fallback, and assets under `/eternal-heritage/`.
 - [x] Remove the duplicate pnpm version declaration that blocks GitHub Actions setup.
 - [x] Validate the deploy workflow uses the package-manager version declared in `package.json`.
+- [x] Inspect the active Pages source and the latest GitHub Actions deployment results.
+- [x] Correct the remaining live Pages configuration or deployment issue.
+- [x] Verify the public GitHub Pages URL serves the static site instead of a 404 page.
+- [x] Identify the route-relative Temples link that fails after visiting Mandapas.
+- [x] Replace it with a stable GitHub Pages-compatible gallery target.
+- [x] Verify Mandapas → Temples navigation on the public GitHub Pages site.
