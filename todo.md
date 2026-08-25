@@ -10,3 +10,7 @@
 - [x] Add a project-subpath-aware Vite base configuration and GitHub Pages workflow.
 - [x] Add a static route fallback for deep links on GitHub Pages.
 - [x] Build and verify the deploy output under the repository subpath.
+- [x] Audit the current Pages artifact path and workflow against the supplied `dist/` static-output requirement.
+- [x] Configure a standalone `build:github` command that emits the complete frontend directly into `dist/`.
+- [x] Update the GitHub Actions artifact path to use the standalone static output.
+- [x] Test homepage, hash route, deep-link fallback, and assets under `/eternal-heritage/`.

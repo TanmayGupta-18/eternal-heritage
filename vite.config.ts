@@ -222,8 +222,13 @@ export default defineConfig({
   },
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
+  // client/public contains only managed-preview diagnostics in this project.
+  // Exclude it from the self-contained GitHub Pages build.
+  publicDir: isGitHubPagesBuild ? false : path.resolve(import.meta.dirname, "client", "public"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // The Manus production server receives dist/public, while the GitHub Pages
+    // command emits a self-contained static artifact directly in dist.
+    outDir: path.resolve(import.meta.dirname, isGitHubPagesBuild ? "dist" : "dist/public"),
     emptyOutDir: true,
   },
   server: {

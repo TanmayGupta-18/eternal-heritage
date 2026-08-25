@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] || "eternal-heritage";
 const basePath = `/${repositoryName}/`;
-const destination = resolve("dist/public/404.html");
+const destination = resolve("dist/404.html");
 
 const fallbackDocument = `<!doctype html>
 <html lang="en">

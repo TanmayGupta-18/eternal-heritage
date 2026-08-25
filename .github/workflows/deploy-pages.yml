@@ -31,12 +31,12 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Build GitHub Pages bundle
-        run: pnpm build:pages
+      - name: Build standalone GitHub Pages frontend
+        run: pnpm build:github
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/public
+          path: ./dist
 
   deploy:
     needs: build
