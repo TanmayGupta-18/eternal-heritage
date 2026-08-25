@@ -14,3 +14,5 @@
 - [x] Configure a standalone `build:github` command that emits the complete frontend directly into `dist/`.
 - [x] Update the GitHub Actions artifact path to use the standalone static output.
 - [x] Test homepage, hash route, deep-link fallback, and assets under `/eternal-heritage/`.
+- [x] Remove the duplicate pnpm version declaration that blocks GitHub Actions setup.
+- [x] Validate the deploy workflow uses the package-manager version declared in `package.json`.
