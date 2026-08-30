@@ -10,7 +10,6 @@ import Home from "./pages/Home";
 import Mandapas from "./pages/Mandapas";
 import Garbhagrihas from "./pages/Garbhagrihas";
 import MeenakshiAmman from "./pages/MeenakshiAmman";
-
 function Router() {
   const locationHook = import.meta.env.BASE_URL === "/" ? undefined : useHashLocation;
 
