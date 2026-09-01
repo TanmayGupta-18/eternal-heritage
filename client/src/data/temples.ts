@@ -6,6 +6,7 @@ export type Temple = {
   deity: string;
   style: string;
   summary: string;
+  voiceDescription: string;
   image: string;
   imageAlt: string;
   sourceUrl: string;
@@ -47,6 +48,8 @@ export const temples: Temple[] = [
     style: "Dravidian",
     summary:
       "A vast sacred complex shaped by gopurams, water, processional routes, and the continuing ritual life of Madurai.",
+    voiceDescription:
+      "Meenakshi Amman Temple in Madurai is a living sacred city dedicated to Meenakshi and Sundareswarar. Its towering gopurams, temple tank, sculpted halls, and processional paths are shaped by daily worship and the festivals of Tamil Nadu.",
     image: templePhotography.meenakshiGopuram,
     imageAlt: "A towering gopuram at the Meenakshi Amman Temple in Madurai.",
     sourceUrl:
@@ -61,6 +64,8 @@ export const temples: Temple[] = [
     style: "Kalinga",
     summary:
       "A monumental thirteenth-century temple known for its sculptural stonework and chariot-like cosmological form.",
+    voiceDescription:
+      "The Konark Sun Temple in Odisha is a monumental thirteenth-century temple dedicated to Surya. Its carved stone form is imagined as a cosmic chariot, making architecture, astronomy, and sculpture part of one powerful visual story.",
     image: templePhotography.konark,
     imageAlt: "The stone mass of the Konark Sun Temple under a deep blue night sky.",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Konark_at_night.jpg",
@@ -74,6 +79,8 @@ export const temples: Temple[] = [
     style: "Himalayan stone tradition",
     summary:
       "A high Himalayan shrine whose compact stone architecture is framed by the severe scale of the Garhwal mountains.",
+    voiceDescription:
+      "Kedarnath is a high Himalayan shrine dedicated to Shiva. Its compact stone architecture stands within the dramatic Garhwal mountains, where pilgrimage, landscape, and enduring sacred tradition meet.",
     image: templePhotography.kedarnath,
     imageAlt: "Kedarnath Temple set beneath rocky Himalayan slopes.",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Kedarnath_Temple.jpg",

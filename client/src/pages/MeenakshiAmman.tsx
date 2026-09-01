@@ -6,6 +6,7 @@ import { archiveArt, templePhotography } from "@/data/temples";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { VoiceGuide } from "@/components/VoiceGuide";
 
 const architectureStudies = [
   {
@@ -53,7 +54,10 @@ export default function MeenakshiAmman() {
               <p className="detail-hero__lede">{t("A living temple city where devotion, water, sculpture, and monumental gateways compose the historic heart of Madurai.")}</p>
             </div>
           </div>
-          <span className="detail-hero__vertical-note">A visual field guide to a living sacred complex</span>
+          <div className="detail-hero__vertical-note">
+            <span>{t("A visual field guide to a living sacred complex")}</span>
+            <VoiceGuide title={t("Meenakshi Amman")} text={t("Meenakshi voice explanation")} />
+          </div>
         </section>
 
         <section className="detail-section container divine-section">

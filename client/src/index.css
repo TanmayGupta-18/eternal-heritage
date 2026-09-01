@@ -341,3 +341,12 @@ h2 { margin: 0; color: var(--paper); font-family: "Playfair Display", Georgia, s
 .mobile-language-picker { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--gold-muted); font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding-top: 1.1rem; border-top: 1px solid rgba(214,178,94,.16); }
 @media (max-width: 920px) { .language-picker { display: none; } }
 @media (min-width: 921px) { .mobile-language-picker { display: none; } }
+
+.voice-guide { display: inline-flex; align-items: center; align-self: flex-start; gap: 0.45rem; margin-top: 1rem; padding: 0.55rem 0.7rem; border: 1px solid rgba(214, 178, 94, 0.42); color: var(--gold-bright); background: rgba(214, 178, 94, 0.07); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: background 180ms var(--ease-out), border-color 180ms var(--ease-out), transform 160ms var(--ease-out); }
+.voice-guide:hover:not(:disabled), .voice-guide:focus-visible:not(:disabled) { background: rgba(214, 178, 94, 0.16); border-color: var(--gold); outline: none; }
+.voice-guide:active:not(:disabled) { transform: scale(0.97); }
+.voice-guide:disabled { cursor: not-allowed; opacity: 0.52; }
+.voice-guide--speaking { background: var(--gold); color: var(--ink); }
+.voice-guide--compact { margin-top: 1.05rem; }
+.voice-guide span { line-height: 1; }
+@media (max-width: 700px) { .voice-guide { min-height: 2.5rem; } }
