@@ -5,6 +5,7 @@ import { archiveArt, templePhotography, temples } from "@/data/temples";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TempleCard } from "@/components/TempleCard";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const filterOptions = {
   state: ["All states", "Tamil Nadu", "Odisha", "Uttarakhand"],
@@ -16,6 +17,7 @@ export default function Home() {
   const [stateFilter, setStateFilter] = useState("All states");
   const [deityFilter, setDeityFilter] = useState("All deities");
   const [styleFilter, setStyleFilter] = useState("All styles");
+  const { t } = useLanguage();
 
   useEffect(() => {
     const scrollToRequestedSection = () => {
@@ -48,27 +50,27 @@ export default function Home() {
           <img className="archive-hero__art" src={archiveArt.archiveSky} alt="" aria-hidden="true" />
           <div className="archive-hero__shade" />
           <div className="archive-hero__content container">
-            <div className="archive-hero__edition">An evolving visual archive · Edition 01</div>
+            <div className="archive-hero__edition">{t("An evolving visual archive · Edition 01")}</div>
             <div className="archive-hero__title-block">
-              <p className="eyebrow">India’s living sacred landscapes</p>
-              <h1>Indian Temples<br /><em>Gallery</em></h1>
+              <p className="eyebrow">{t("India’s living sacred landscapes")}</p>
+              <h1>{t("Indian Temples")}<br /><em>{t("Gallery")}</em></h1>
               <p className="archive-hero__lede">
-                A visual index of structures shaped by devotion, geometry, craftsmanship, and the long memory of place.
+                {t("A visual index of structures shaped by devotion, geometry, craftsmanship, and the long memory of place.")}
               </p>
-              <a href={import.meta.env.BASE_URL === "/" ? "#gallery" : "#/"} className="hero-explore">Explore the collection <ArrowDown size={16} /></a>
+              <a href={import.meta.env.BASE_URL === "/" ? "#gallery" : "#/"} className="hero-explore">{t("Explore the collection")} <ArrowDown size={16} /></a>
             </div>
-            <div className="archive-hero__edge-note"><span /> Scroll to enter</div>
+            <div className="archive-hero__edge-note"><span /> {t("Scroll to enter")}</div>
           </div>
         </section>
 
         <section className="archive-intro container" id="archive-notes">
-          <div className="archive-intro__label"><BookOpenText size={19} /> A photographic field archive</div>
+          <div className="archive-intro__label"><BookOpenText size={19} /> {t("A photographic field archive")}</div>
           <div className="archive-intro__copy">
-            <p className="eyebrow">The collection</p>
-            <h2>Not monuments alone—<br /><em>living cultural worlds.</em></h2>
+            <p className="eyebrow">{t("The collection")}</p>
+            <h2>{t("Not monuments alone—")}<br /><em>{t("living cultural worlds.")}</em></h2>
           </div>
           <p className="archive-intro__text">
-            Each entry follows a temple through the materials of its presence: landmark architecture, ritual circulation, carved surfaces, and the human histories carried in its setting. The first archive room opens in Madurai.
+            {t("Each entry follows a temple through the materials of its presence: landmark architecture, ritual circulation, carved surfaces, and the human histories carried in its setting. The first archive room opens in Madurai.")}
           </p>
         </section>
 
@@ -76,30 +78,30 @@ export default function Home() {
           <div className="container">
             <div className="gallery-section__topline">
               <div>
-                <p className="eyebrow">Select a path</p>
-                <h2>Temple <em>index</em></h2>
+                <p className="eyebrow">{t("Select a path")}</p>
+                <h2>{t("Temple")} <em>{t("index")}</em></h2>
               </div>
-              <p>Filter the first three entries by regional setting, principal deity, or architectural tradition.</p>
+              <p>{t("Filter the first three entries by regional setting, principal deity, or architectural tradition.")}</p>
             </div>
 
             <div className="filter-bar" aria-label="Filter temple entries">
-              <div className="filter-bar__label"><SlidersHorizontal size={16} /> Filter the archive</div>
+              <div className="filter-bar__label"><SlidersHorizontal size={16} /> {t("Filter the archive")}</div>
               <label className="archive-select">
-                <span className="sr-only">Filter by state</span>
+                <span className="sr-only">{t("Filter by state")}</span>
                 <select value={stateFilter} onChange={(event) => setStateFilter(event.target.value)}>
-                  {filterOptions.state.map((option) => <option key={option}>{option}</option>)}
+                  {filterOptions.state.map((option) => <option key={option} value={option}>{t(option)}</option>)}
                 </select>
               </label>
               <label className="archive-select">
-                <span className="sr-only">Filter by deity</span>
+                <span className="sr-only">{t("Filter by deity")}</span>
                 <select value={deityFilter} onChange={(event) => setDeityFilter(event.target.value)}>
-                  {filterOptions.deity.map((option) => <option key={option}>{option}</option>)}
+                  {filterOptions.deity.map((option) => <option key={option} value={option}>{t(option)}</option>)}
                 </select>
               </label>
               <label className="archive-select">
-                <span className="sr-only">Filter by style</span>
+                <span className="sr-only">{t("Filter by style")}</span>
                 <select value={styleFilter} onChange={(event) => setStyleFilter(event.target.value)}>
-                  {filterOptions.style.map((option) => <option key={option}>{option}</option>)}
+                  {filterOptions.style.map((option) => <option key={option} value={option}>{t(option)}</option>)}
                 </select>
               </label>
             </div>
@@ -111,7 +113,7 @@ export default function Home() {
             ) : (
               <div className="empty-archive">
                 <Compass size={25} />
-                <p>No entries meet this combination. Try a wider path through the archive.</p>
+                <p>{t("No entries meet this combination. Try a wider path through the archive.")}</p>
               </div>
             )}
           </div>
@@ -119,10 +121,10 @@ export default function Home() {
 
         <section className="archive-notice" style={{ backgroundImage: `linear-gradient(90deg, rgba(12, 19, 31, 0.98) 0%, rgba(12, 19, 31, 0.7) 56%, rgba(12, 19, 31, 0.96) 100%), url(${archiveArt.stoneStudy})` }}>
           <div className="container archive-notice__content">
-            <p className="eyebrow">A note on the archive</p>
-            <h2>Built for looking<br /><em>with care.</em></h2>
-            <p>Photography in this prototype is sourced from reusable Wikimedia Commons files and linked back to its original credit record.</p>
-            <a href="https://commons.wikimedia.org/wiki/Category:Madurai_Meenakshi_Temple" target="_blank" rel="noreferrer" className="notice-link">View image credits</a>
+            <p className="eyebrow">{t("A note on the archive")}</p>
+            <h2>{t("Built for looking")}<br /><em>{t("with care.")}</em></h2>
+            <p>{t("Photography in this prototype is sourced from reusable Wikimedia Commons files and linked back to its original credit record.")}</p>
+            <a href="https://commons.wikimedia.org/wiki/Category:Madurai_Meenakshi_Temple" target="_blank" rel="noreferrer" className="notice-link">{t("View image credits")}</a>
           </div>
         </section>
       </main>

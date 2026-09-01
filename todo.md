@@ -22,3 +22,7 @@
 - [x] Identify the route-relative Temples link that fails after visiting Mandapas.
 - [x] Replace it with a stable GitHub Pages-compatible gallery target.
 - [x] Verify Mandapas → Temples navigation on the public GitHub Pages site.
+- [x] Create persistent English, Hindi, and Telugu language state.
+- [x] Add the top-right language selector to shared navigation.
+- [x] Translate all visible copy across every routed page and shared component.
+- [x] Verify Hindi and Telugu switching, persistence, and mobile placement.

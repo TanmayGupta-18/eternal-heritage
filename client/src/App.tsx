@@ -6,6 +6,7 @@ import { Route, Router as WouterRouter, Switch } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
 import Mandapas from "./pages/Mandapas";
 import Garbhagrihas from "./pages/Garbhagrihas";
@@ -32,10 +33,12 @@ export default function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
+        <LanguageProvider>
         <TooltipProvider>
           <Toaster />
           <Router />
         </TooltipProvider>
+        </LanguageProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

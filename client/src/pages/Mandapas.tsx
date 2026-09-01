@@ -5,6 +5,7 @@ import { Link } from "wouter";
 import { archiveArt, templePhotography } from "@/data/temples";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const hallNotes = [
   {
@@ -28,6 +29,7 @@ const hallNotes = [
 ];
 
 export default function Mandapas() {
+  const { t } = useLanguage();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -41,30 +43,30 @@ export default function Mandapas() {
           <img src={archiveArt.archiveSky} alt="" aria-hidden="true" className="assembly-hero__art" />
           <div className="assembly-hero__shade" />
           <div className="container assembly-hero__content">
-            <Link href="/" className="back-link"><ArrowLeft size={16} /> Back to temples</Link>
+            <Link href="/" className="back-link"><ArrowLeft size={16} /> {t("Back to temples")}</Link>
             <div className="assembly-hero__title-block">
-              <p className="eyebrow">Architectural marvels · Archive / 02</p>
-              <h1>Mandapas</h1>
-              <p>Enter the halls of assembly, where processional movement, crafted stone, and shared ceremony give architecture its social life.</p>
+              <p className="eyebrow">{t("Architectural marvels · Archive / 02")}</p>
+              <h1>{t("Mandapas")}</h1>
+              <p>{t("Enter the halls of assembly, where processional movement, crafted stone, and shared ceremony give architecture its social life.")}</p>
             </div>
-            <a href="#pillar-halls" className="assembly-hero__scroll">Read the study <ArrowDown size={16} /></a>
+            <a href="#pillar-halls" className="assembly-hero__scroll">{t("Read the study")} <ArrowDown size={16} /></a>
           </div>
         </section>
 
         <section className="pillar-halls container" id="pillar-halls">
           <figure className="pillar-halls__figure">
             <img src={templePhotography.meenakshiPillars} alt="A richly detailed passage through the Thousand Pillar Hall at Meenakshi Temple." />
-            <figcaption>Ayiram Kaal Mandapam · Madurai</figcaption>
+            <figcaption>{t("Ayiram Kaal Mandapam · Madurai")}</figcaption>
           </figure>
           <div className="pillar-halls__copy">
-            <p className="eyebrow">I. Architectural Marvels</p>
-            <h2>The <em>pillar halls</em></h2>
+            <p className="eyebrow">{t("I. Architectural Marvels")}</p>
+            <h2>{t("The")} <em>{t("pillar halls")}</em></h2>
             <span className="gold-rule" />
             <p>
-              Mandapas are the expansive, columned rooms that make the temple a place of assembly. They absorb the scale of festivals and daily passage, while offering a deliberate transition toward more restricted inner spaces.
+              {t("Mandapas are the expansive, columned rooms that make the temple a place of assembly. They absorb the scale of festivals and daily passage, while offering a deliberate transition toward more restricted inner spaces.")}
             </p>
             <p>
-              Their visual force lies in recurrence. One support leads to another; open bays frame fragments of light; intricate carving keeps the eye moving even as the body slows.
+              {t("Their visual force lies in recurrence. One support leads to another; open bays frame fragments of light; intricate carving keeps the eye moving even as the body slows.")}
             </p>
           </div>
         </section>
@@ -72,9 +74,9 @@ export default function Mandapas() {
         <section className="thousand-hall" style={{ backgroundImage: `linear-gradient(180deg, rgba(8, 13, 22, 0.92), rgba(8, 13, 22, 0.98)), url(${archiveArt.mandala})` }}>
           <div className="container">
             <div className="section-heading section-heading--center">
-              <p className="eyebrow">II. A field note from Madurai</p>
+              <p className="eyebrow">{t("II. A field note from Madurai")}</p>
               <h2>Ayiram Kaal <em>Mandapam</em></h2>
-              <p>A study in density, repetition, and the visual tempo of stone.</p>
+              <p>{t("A study in density, repetition, and the visual tempo of stone.")}</p>
             </div>
             <div className="thousand-hall__grid">
               <div className="hall-note-stack">
@@ -82,13 +84,13 @@ export default function Mandapas() {
                 <div className="hall-note hall-note--quiet">
                   <Waypoints size={24} strokeWidth={1.35} />
                   <span className="hall-note__number">04</span>
-                  <h3>Wayfinding in stone</h3>
-                  <p>The order of the hall offers orientation without signage, guiding the visitor through structural rhythm and framed sightlines.</p>
+                  <h3>{t("Wayfinding in stone")}</h3>
+                  <p>{t("The order of the hall offers orientation without signage, guiding the visitor through structural rhythm and framed sightlines.")}</p>
                 </div>
               </div>
               <figure className="thousand-hall__image">
                 <img src={templePhotography.meenakshiMandapaCorridor} alt="A long corridor of sculpted columns at Meenakshi Amman Temple." />
-                <figcaption>A corridor toward the mandapa</figcaption>
+                <figcaption>{t("A corridor toward the mandapa")}</figcaption>
               </figure>
               <div className="hall-note-stack hall-note-stack--right">
                 {hallNotes.slice(1).map((note) => <HallNote note={note} key={note.title} />)}
@@ -99,25 +101,25 @@ export default function Mandapas() {
 
         <section className="hall-hierarchy container">
           <div className="section-heading section-heading--center">
-            <p className="eyebrow">III. Sequence and scale</p>
-            <h2>The hierarchy of <em>halls</em></h2>
+            <p className="eyebrow">{t("III. Sequence and scale")}</p>
+            <h2>{t("The hierarchy of")} <em>{t("halls")}</em></h2>
           </div>
           <div className="hall-hierarchy__grid">
             <article className="hall-hierarchy__feature" style={{ backgroundImage: `linear-gradient(0deg, rgba(9, 14, 24, 0.97), rgba(9, 14, 24, 0.18)), url(${archiveArt.stoneStudy})` }}>
-              <p className="eyebrow">Main hall</p>
+              <p className="eyebrow">{t("Main hall")}</p>
               <h3>Maha Mandapa</h3>
-              <p>The larger public hall, where the approach slows and the community gathers before the more focused spaces of worship.</p>
+              <p>{t("The larger public hall, where the approach slows and the community gathers before the more focused spaces of worship.")}</p>
             </article>
             <article className="hall-hierarchy__aside">
               <PawPrint size={32} strokeWidth={1.2} />
-              <p className="eyebrow">Pavilion</p>
+              <p className="eyebrow">{t("Pavilion")}</p>
               <h3>Nandi Mandapa</h3>
-              <p>A separate, often axial pavilion that becomes a visual and ceremonial hinge in a Shaiva temple complex.</p>
+              <p>{t("A separate, often axial pavilion that becomes a visual and ceremonial hinge in a Shaiva temple complex.")}</p>
             </article>
             <article className="hall-hierarchy__threshold" style={{ backgroundImage: `linear-gradient(90deg, rgba(9, 14, 24, 0.88), rgba(9, 14, 24, 0.6)), url(${archiveArt.bronzeStudy})` }}>
-              <p className="eyebrow">Ante-chamber</p>
+              <p className="eyebrow">{t("Ante-chamber")}</p>
               <h3>Ardha Mandapa</h3>
-              <p>The smaller transitional room that tunes attention before the threshold of the sanctum.</p>
+              <p>{t("The smaller transitional room that tunes attention before the threshold of the sanctum.")}</p>
             </article>
           </div>
         </section>
@@ -128,13 +130,14 @@ export default function Mandapas() {
 }
 
 function HallNote({ note }: { note: (typeof hallNotes)[number] }) {
+  const { t } = useLanguage();
   const Icon = note.icon;
   return (
     <article className="hall-note">
       <Icon size={24} strokeWidth={1.35} />
       <span className="hall-note__number">{note.number}</span>
-      <h3>{note.title}</h3>
-      <p>{note.text}</p>
+      <h3>{t(note.title)}</h3>
+      <p>{t(note.text)}</p>
     </article>
   );
 }
